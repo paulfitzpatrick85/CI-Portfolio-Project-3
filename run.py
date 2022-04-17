@@ -1,26 +1,12 @@
-#GET RANDOM WORD:
-
 import random
 
-words = ["roof", "five", "four", "ball", "room"]
 
-word = random.choice(words).lower()
-print(word)
+def welcome_message():
+    """Welcome user to game upon loading"""
+    print("--------------------------------\n Welcome to HangMan!\n The program will select a word at random, and your job is to guess, one letter at a time, what the word is.\n With each incorrect answer the hangman will appear one body part at a time.\n-------------------------------")
 
 
-#FOR LETTER IN GUESS WORD:
-
-word ="banana"
-if "i" in word:
-  print("yes")
-else:
-  print(r"""  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========""")
+welcome_message()
 
 
 
