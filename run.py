@@ -28,17 +28,26 @@ def initiate_game():
         initiate_game()
 
 
+def get_words():
+    words = ["roof", "five", "four", "ball", "room"]
+    return random.choice(words).lower()
+
+
 def start_game():
     """starts game by first selecting random word from list,
     then asks user to guess letter or whole word"""
-
-    words = ["roof", "five", "four", "ball", "room"]
-    word = random.choice(words).lower()
-    print("A word has been selected")
+    word = get_words()
+    print("\nA word has been selected")
+    print(f"The word contains {len(word)} letters")
     print(word)
-    letter = input("guess a letter:")
+    letter = input("\nGuess a letter:").lower()
+    #letter = False
+
+    #while letter == False
+
     if letter in word:
         print(f"{letter} is in there!")
+
     else:
         print(f"{letter} ain't there sorry!")
 #         print(r"""  +---+
@@ -54,6 +63,7 @@ def main():
     """Main function to hold all functions"""
     welcome_message()
     initiate_game()
+    get_words()
     start_game() 
 
 
