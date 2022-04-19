@@ -29,24 +29,25 @@ def initiate_game():
 
 
 def start_game():
-    words = ["iroof", "ifive", "ifour", "iball", "iroom"]
-    word = random.choice(words).lower()
+    """starts game by first selecting random word from list,
+    then asks user to guess letter or whole word"""
 
-    print(word)
-    
+    words = ["roof", "five", "four", "ball", "room"]
+    word = random.choice(words).lower()
     print("A word has been selected")
-    
-    if "i" in word:
-        print("yes")
+    print(word)
+    letter = input("guess a letter:")
+    if letter in word:
+        print(f"{letter} is in there!")
     else:
-        print("Heres your hang stand")
-        print(r"""  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========""")
+        print(f"{letter} ain't there sorry!")
+#         print(r"""  +---+
+#   |   |
+#       |
+#       |
+#       |
+#       |
+# =========""")
   
 
 def main():
