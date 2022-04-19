@@ -46,21 +46,27 @@ def start_game():
     print(word)
 
     while guess is False:
-        letter = str(input("\nGuess a letter:").lower())
-        if letter == word:
-            print("You guessed the word!!")
-            guess is True
-            play_again = input("\nWould you like to play again y/n?").lower()
-            if play_again == "y":
-                start_game()
-            elif play_again == "n":
-                print("\nOkay, we'll return to the start to begin when ready")
-                main()
+        letter = input("\nGuess a letter:").lower()
+        if letter.isalpha() is True:
 
-        elif letter in word:
-            print(f"'{letter}' is in there!")
+            if letter == word:
+                print("You guessed the word!!")
+                guess is True
+                print("Would you like to play again?")
+                play_again = input("\ny/n?").lower()
+                if play_again == "y":
+                    start_game()
+                elif play_again == "n":
+                    print("\nOkay, we'll return to start & begin when ready")
+                    main()
+
+            elif letter in word:
+                print(f"'{letter}' is in there!")
+            #print(f"{letter}")
+            else:
+                print(f"'{letter}' ain't there sorry!")
         else:
-            print(f"'{letter}' ain't there sorry!")
+            print("input letters only")
 
 
 def main():
