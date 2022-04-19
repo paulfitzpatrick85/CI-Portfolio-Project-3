@@ -33,6 +33,9 @@ def get_words():
     return random.choice(words).lower()
 
 
+guess = False
+
+
 def start_game():
     """starts game by first selecting random word from list,
     then asks user to guess letter or whole word"""
@@ -40,16 +43,16 @@ def start_game():
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
     print(word)
-    letter = input("\nGuess a letter:").lower()
-    #letter = False
 
-    #while letter == False
-
-    if letter in word:
-        print(f"{letter} is in there!")
-
-    else:
-        print(f"{letter} ain't there sorry!")
+    while guess == False:
+        letter = input("\nGuess a letter:").lower()
+        if letter == word:
+            print("you guessed the word")
+            guess == True
+        elif letter in word:
+            print(f"{letter} is in there!")
+        else:
+            print(f"{letter} ain't there sorry!")
 #         print(r"""  +---+
 #   |   |
 #       |
