@@ -15,13 +15,14 @@ def welcome_message():
 
 def initiate_game():
     """Ask user if they would like to start a new game"""
+
     name = input("Input your name:").lower().capitalize()
     print(f"{name}, would you like to play a new game?") 
     start_game_question = input("Type 'y' for yes or 'n' for no.\n").lower()
     if start_game_question == "y":
         print(f"Great {name}, lets begin!")
     elif start_game_question == "n":
-        print("Okay, we'll return to the start and begin  when ready")
+        print(f"Okay {name}, we'll return to the start to begin when ready")
         main()
     else:
         print("please enter 'y' or 'n'")
@@ -44,23 +45,23 @@ def start_game():
     print(f"The word contains {len(word)} letters")
     print(word)
 
-    while guess == False:
-        letter = input("\nGuess a letter:").lower()
+    while guess is False:
+        letter = str(input("\nGuess a letter:").lower())
         if letter == word:
-            print("you guessed the word")
-            guess == True
+            print("You guessed the word!!")
+            guess is True
+            play_again = input("\nWould you like to play again y/n?").lower()
+            if play_again == "y":
+                start_game()
+            elif play_again == "n":
+                print("\nOkay, we'll return to the start to begin when ready")
+                main()
+
         elif letter in word:
-            print(f"{letter} is in there!")
+            print(f"'{letter}' is in there!")
         else:
-            print(f"{letter} ain't there sorry!")
-#         print(r"""  +---+
-#   |   |
-#       |
-#       |
-#       |
-#       |
-# =========""")
-  
+            print(f"'{letter}' ain't there sorry!")
+
 
 def main():
     """Main function to hold all functions"""
