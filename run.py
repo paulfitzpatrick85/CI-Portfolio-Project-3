@@ -44,9 +44,11 @@ def start_game():
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
     print(word)
+#hangman_acsii = []
 
     while guess is False:
         letter = input("\nGuess a letter:").lower()
+        
         if letter.isalpha() is True:
 
             if letter == word:
@@ -62,9 +64,17 @@ def start_game():
 
             elif letter in word:
                 print(f"'{letter}' is in there!")
-            #print(f"{letter}")
+                position = word.find(letter)
+                if position == 0:
+                    print(letter, "_ _ _ ")
+                if position == 1:
+                    print("_", letter, "_ _  ")
+                if position == 2:
+                    print("_ _", letter, "_ ")
+                if position == 3:
+                    print("_ _ _", letter)
             else:
-                print(f"'{letter}' ain't there sorry!")
+                print(f"'{letter}' ain't there sorry!")         
         else:
             print("input letters only")
 
