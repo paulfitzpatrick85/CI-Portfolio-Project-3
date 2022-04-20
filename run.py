@@ -56,7 +56,7 @@ def start_game():
     print(word)
 
     wrong_guesses = ["wrong guesses:"]
-    #hangman_acsii = []
+    hangman = [1, 2, 3, 4]
 
     while guess is False:
         letter = input("\nGuess a letter:").lower()
@@ -84,6 +84,7 @@ def start_game():
                 wrong_guesses.append(letter)
                 print(f"guesses left {guesses_left}")
                 print(wrong_guesses) 
+                print([i for i in hangman])
                 if guesses_left == 0:
                     print("GAME OVER!!")
                     print("You've ran out of guesses!")
