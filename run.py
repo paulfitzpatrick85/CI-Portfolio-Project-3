@@ -84,7 +84,7 @@ def start_game():
                 wrong_guesses.append(letter)
                 print(f"guesses left {guesses_left}")
                 print(wrong_guesses) 
-                print([i for i in hangman])
+                print([i for i in hangman])#needs to be fixed
                 if guesses_left == 0:
                     print("GAME OVER!!")
                     print("You've ran out of guesses!")
