@@ -1,4 +1,5 @@
 import random
+"""import random"""
 
 
 def welcome_message():
@@ -34,26 +35,25 @@ def get_words():
     return random.choice(words).lower()
 
 
-guess = False
-
-
 def start_game():
     """starts game by first selecting random word from list,
     then asks user to guess letter or whole word"""
+    guess = False
+    guesses_left = 4
     word = get_words()
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
     print(word)
-#hangman_acsii = []
+
+    wrong_guesses = ["wrong guesses:"]
+    #hangman_acsii = []
 
     while guess is False:
         letter = input("\nGuess a letter:").lower()
-        
         if letter.isalpha() is True:
-
             if letter == word:
                 print("You guessed the word!!")
-                guess is True
+                guess = True
                 print("Would you like to play again?")
                 play_again = input("\ny/n?").lower()
                 if play_again == "y":
@@ -61,7 +61,7 @@ def start_game():
                 elif play_again == "n":
                     print("\nOkay, we'll return to start & begin when ready")
                     main()
-
+           
             elif letter in word:
                 print(f"'{letter}' is in there!")
                 position = word.find(letter)
@@ -73,8 +73,19 @@ def start_game():
                     print("_ _", letter, "_ ")
                 if position == 3:
                     print("_ _ _", letter)
-            else:
-                print(f"'{letter}' ain't there sorry!")         
+
+            elif letter not in word:
+                print(f"Sorry, '{letter}' is not in the word!")
+                guesses_left -= 1
+                wrong_guesses.append(letter)
+                print(f"guesses left {guesses_left}")
+                print(wrong_guesses) 
+                if guesses_left == 0:
+                    print("GAME OVER!!")
+                    print("You've ran out of guesses!")
+                    break
+                    start_game()
+    
         else:
             print("input letters only")
 
