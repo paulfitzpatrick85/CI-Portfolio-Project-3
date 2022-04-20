@@ -14,6 +14,16 @@ def welcome_message():
      \n   -------------------------------------------------""")
 
 
+def play_again():
+    print("Would you like to play again?")
+    play_again = input("\ny/n?").lower()
+    if play_again == "y":
+        start_game()
+    elif play_again == "n":
+        print("\nOkay, we'll return to start & begin when ready")
+        main()
+
+
 def initiate_game():
     """Ask user if they would like to start a new game"""
 
@@ -54,13 +64,7 @@ def start_game():
             if letter == word:
                 print("You guessed the word!!")
                 guess = True
-                print("Would you like to play again?")
-                play_again = input("\ny/n?").lower()
-                if play_again == "y":
-                    start_game()
-                elif play_again == "n":
-                    print("\nOkay, we'll return to start & begin when ready")
-                    main()
+                play_again()
            
             elif letter in word:
                 print(f"'{letter}' is in there!")
@@ -83,9 +87,8 @@ def start_game():
                 if guesses_left == 0:
                     print("GAME OVER!!")
                     print("You've ran out of guesses!")
-                    break
-                    start_game()
-    
+                    play_again()
+                   
         else:
             print("input letters only")
 
@@ -96,6 +99,7 @@ def main():
     initiate_game()
     get_words()
     start_game() 
+    play_again()
 
 
 main()
