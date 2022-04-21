@@ -13,3 +13,10 @@ if position == 0:
       print("_ _ _ _", letter)
 
       https://stackoverflow.com/questions/56324522/program-in-python-to-show-letters-guessed-in-a-hangman-game-not-working
+
+
+
+
+      acsii pictures
+
+      https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c

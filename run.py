@@ -56,7 +56,38 @@ def start_game():
     print(word)
 
     wrong_guesses = ["wrong guesses:"]
-    hangman = ["a", "b", "c", "d", "e"]
+    hangman = ["""
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========""", """  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========""", """  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========""", """  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========""", """ +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+========="""]
 
     while guess is False:
         letter = input("\nGuess a letter:").lower()
@@ -93,7 +124,7 @@ def start_game():
                     print(hangman[3])
                 print(wrong_guesses) 
                 if guesses_left == 0:
-                    print("GAME OVER!!")
+                    print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
                     print(hangman[4])
                     play_again()
