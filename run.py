@@ -9,7 +9,7 @@ def welcome_message():
      The program will select a word at random.
      Your job is to guess, one letter at a time, 
      what that word is.
-     With each incorrect answercthe hangman will
+     With each incorrect answer the hangman will
      appear one body part at a time.
      \n   -------------------------------------------------""")
 
@@ -56,7 +56,7 @@ def start_game():
     print(word)
 
     wrong_guesses = ["wrong guesses:"]
-    hangman = [1, 2, 3, 4]
+    hangman = ["a", "b", "c", "d", "e"]
 
     while guess is False:
         letter = input("\nGuess a letter:").lower()
@@ -83,11 +83,19 @@ def start_game():
                 guesses_left -= 1
                 wrong_guesses.append(letter)
                 print(f"guesses left {guesses_left}")
+                if guesses_left == 3:
+                    print(hangman[0])
+                elif guesses_left == 2:
+                    print(hangman[1])
+                elif guesses_left == 2:
+                    print(hangman[2])
+                elif guesses_left == 1:
+                    print(hangman[3])
                 print(wrong_guesses) 
-                print([i for i in hangman])#needs to be fixed
                 if guesses_left == 0:
                     print("GAME OVER!!")
                     print("You've ran out of guesses!")
+                    print(hangman[4])
                     play_again()
                    
         else:
