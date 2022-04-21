@@ -57,8 +57,10 @@ def start_game():
     print(f"The word contains {len(word)} letters")
     print(word)
 
-    wrong_guesses = ["wrong guesses:"]
+    wrong_guesses = []
     correct_guesses = []
+    sorted_word = sorted(word)
+    sorted_correct_guesses = sorted(correct_guesses)
     # hangman ascii art
     hangman = ["""
   +---+
@@ -107,9 +109,11 @@ def start_game():
                 position = word.find(letter)
                 pos_list[position] = letter 
                 print(' '.join(pos_list))
-                for i in correct_guesses:
-                    if sum(i) in word:
-                        print("win")
+                print(correct_guesses)
+                print(sorted_correct_guesses)
+
+            elif correct_guesses == sorted_word:
+                print("win")
                      
             elif letter not in word:
                 print(f"Sorry, '{letter}' is not in the word!")
