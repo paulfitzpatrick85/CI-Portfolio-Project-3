@@ -41,7 +41,8 @@ def initiate_game():
 
 
 def get_words():
-    words = ["roof", "five", "four", "ball", "room"]
+    words = ["bake", "word", "list", "four", "five", "best", 
+             "cute", "zero", "huge", "race", "rice", "lace", "beam"]
     return random.choice(words).lower()
 
 
@@ -51,11 +52,13 @@ def start_game():
     guess = False
     guesses_left = 4
     word = get_words()
+    pos_list = ['_' for x in range(len(word))]
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
     print(word)
 
     wrong_guesses = ["wrong guesses:"]
+    # hangman ascii art
     hangman = ["""
   +---+
   |   |
@@ -100,15 +103,12 @@ def start_game():
             elif letter in word:
                 print(f"'{letter}' is in there!")
                 position = word.find(letter)
-                if position == 0:
-                    print(letter, "_ _ _ ")
-                if position == 1:
-                    print("_", letter, "_ _  ")
-                if position == 2:
-                    print("_ _", letter, "_ ")
-                if position == 3:
-                    print("_ _ _", letter)
-
+                pos_list[position] = letter 
+                guess1 = (' '.join(pos_list))
+                print(guess1)
+                if letter in word * 4:
+                    print("You guessed the word!!")
+                     
             elif letter not in word:
                 print(f"Sorry, '{letter}' is not in the word!")
                 guesses_left -= 1
@@ -122,7 +122,7 @@ def start_game():
                     print(hangman[2])
                 elif guesses_left == 1:
                     print(hangman[3])
-                print(wrong_guesses) 
+                print(wrong_guesses)
                 if guesses_left == 0:
                     print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
