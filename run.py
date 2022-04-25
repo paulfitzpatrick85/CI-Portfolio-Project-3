@@ -55,7 +55,7 @@ def start_game():
     pos_list = ['_' for x in range(len(word))]
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
-    print(word)
+    # print(word)
 
     wrong_guesses = []
     correct_guesses = []
@@ -108,8 +108,8 @@ def start_game():
                 position = word.find(letter)
                 pos_list[position] = letter 
                 print(' '.join(pos_list))
-                print(sorted_word)
-                print(sorted(correct_guesses))
+                # print(sorted_word)
+                # print(sorted(correct_guesses))
             
                 if sorted_word == sorted(correct_guesses):
                     print("You guessed the word!!")
@@ -119,7 +119,7 @@ def start_game():
                 print(f"Sorry, '{letter}' is not in the word!")
                 guesses_left -= 1
                 wrong_guesses.append(letter)
-                print(f"guesses left {guesses_left}")
+                print(f"guesses left = {guesses_left}")
                 if guesses_left == 3:
                     print(hangman[0])
                 elif guesses_left == 2:
@@ -128,7 +128,7 @@ def start_game():
                     print(hangman[2])
                 elif guesses_left == 1:
                     print(hangman[3])
-                print(wrong_guesses)
+                print(f"wrong guesses so far: {wrong_guesses}")
                 if guesses_left == 0:
                     print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
