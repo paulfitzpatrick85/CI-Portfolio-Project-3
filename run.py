@@ -24,20 +24,32 @@ def play_again():
         main()
 
 
-def initiate_game():
+def get_name():
     """Ask user if they would like to start a new game"""
+    while True:
+        try:
+            name = input("Input your name:").lower().capitalize()
+            if name.isalpha() is True:
+                break
+            else:
+                raise TypeError()
+        except TypeError:
+            print("Your name must consist of letters only")
 
-    name = input("Input your name:").lower().capitalize()
-    print(f"{name}, would you like to play a new game?") 
-    start_game_question = input("Type 'y' for yes or 'n' for no.\n").lower()
+    return name
+
+
+def initiate_game(uname):
+    print(f"{uname}, would you like to play a new game?") 
+    start_game_question = input("Type 'y' 'n' for no.\n").lower()
     if start_game_question == "y":
-        print(f"Great {name}, lets begin!")
+        print(f"Great {uname}, lets begin!")
     elif start_game_question == "n":
-        print(f"Okay {name}, we'll return to the start to begin when ready")
+        print(f"Okay {uname}, we'll return to begin when ready")
         main()
     else:
         print("please enter 'y' or 'n'")
-        initiate_game()
+        initiate_game(uname)
 
 
 def get_words():
@@ -128,7 +140,7 @@ def start_game():
                     print(hangman[2])
                 elif guesses_left == 1:
                     print(hangman[3])
-                print(f"wrong guesses so far: {wrong_guesses}")
+                print(wrong_guesses)
                 if guesses_left == 0:
                     print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
@@ -142,14 +154,14 @@ def start_game():
 def main():
     """Main function to hold all functions"""
     welcome_message()
-    initiate_game()
+    get_name()
+    initiate_game(name)
     get_words()
     start_game() 
     play_again()
 
 
 main()
-
 
 
 
