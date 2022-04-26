@@ -36,17 +36,22 @@ def initiate_game():
             print("Your name must consist of letters only")
     
     print(f"{name}, would you like to play a new game?")
-    start_game_question = input("Type 'y' for yes, 'n' for no.\n").lower()
-    if start_game_question == "y":
-        print(f"Great {name}, lets begin!")
-    elif start_game_question == "n":
-        print(f"Okay {name}, we'll return to begin when ready")
-        main()
-    else:
-        print("please enter 'y' or 'n'")
-        initiate_game()
 
+    while True:
+        try:
+            start_game_question = input("Type 'y'/'n' for yes/no.\n").lower()
+            if start_game_question == "y":
+                print(f"Great {name}, lets begin!")
+                break
+            elif start_game_question == "n":
+                print(f"Okay {name}, we'll return to begin when ready")
+                main()
+            else:
+                raise ValueError()
+        except ValueError:
+            print("you need to pick y or n")
 
+                
 def get_words():
     words = ["bake", "word", "list", "four", "five", "best",
              "cute", "zero", "huge", "race", "rice", "lace", "beam"]
