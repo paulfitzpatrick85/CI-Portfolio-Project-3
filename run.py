@@ -4,10 +4,10 @@ import random
 
 def welcome_message():
     """Welcome user to game upon loading"""
-    print("""   -------------------------------------------------\n 
+    print("""   -------------------------------------------------\n
      *********** Welcome to HangMan! ************\n
      The program will select a word at random.
-     Your job is to guess, one letter at a time, 
+     Your job is to guess, one letter at a time,
      what that word is.
      With each incorrect answer the hangman will
      appear one body part at a time.
@@ -24,8 +24,7 @@ def play_again():
         main()
 
 
-def get_name():
-    """Ask user if they would like to start a new game"""
+def initiate_game():
     while True:
         try:
             name = input("Input your name:").lower().capitalize()
@@ -35,25 +34,21 @@ def get_name():
                 raise TypeError()
         except TypeError:
             print("Your name must consist of letters only")
-
-    return name
-
-
-def initiate_game(uname):
-    print(f"{uname}, would you like to play a new game?") 
-    start_game_question = input("Type 'y' 'n' for no.\n").lower()
+    
+    print(f"{name}, would you like to play a new game?")
+    start_game_question = input("Type 'y' for yes, 'n' for no.\n").lower()
     if start_game_question == "y":
-        print(f"Great {uname}, lets begin!")
+        print(f"Great {name}, lets begin!")
     elif start_game_question == "n":
-        print(f"Okay {uname}, we'll return to begin when ready")
+        print(f"Okay {name}, we'll return to begin when ready")
         main()
     else:
         print("please enter 'y' or 'n'")
-        initiate_game(uname)
+        initiate_game()
 
 
 def get_words():
-    words = ["bake", "word", "list", "four", "five", "best", 
+    words = ["bake", "word", "list", "four", "five", "best",
              "cute", "zero", "huge", "race", "rice", "lace", "beam"]
     return random.choice(words).lower()
 
@@ -69,7 +64,7 @@ def start_game():
     print(f"The word contains {len(word)} letters")
     # print(word)
 
-    wrong_guesses = []
+    wrong_guesses = ["wrong guesses:"]
     correct_guesses = []
     sorted_word = sorted(word)
     # hangman ascii art
@@ -118,7 +113,7 @@ def start_game():
                 print(f"'{letter}' is in there!")
                 correct_guesses.append(letter)
                 position = word.find(letter)
-                pos_list[position] = letter 
+                pos_list[position] = letter
                 print(' '.join(pos_list))
                 # print(sorted_word)
                 # print(sorted(correct_guesses))
@@ -148,20 +143,20 @@ def start_game():
                     play_again()
                    
         else:
-            print("input letters only")
+            print("You can only input letters")
 
 
 def main():
     """Main function to hold all functions"""
     welcome_message()
-    get_name()
-    initiate_game(name)
+    initiate_game()
     get_words()
-    start_game() 
+    start_game()
     play_again()
 
 
 main()
+
 
 
 
