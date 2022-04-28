@@ -11,7 +11,7 @@ def welcome_message():
      what that word is.
      With each incorrect answer the hangman will
      appear one body part at a time.
-     You are allowed four wrong guesses.
+     You are allowed six wrong guesses.
                       Good Luck!
      \n   -------------------------------------------------""")
 
@@ -21,10 +21,10 @@ def play_again():
     print("Would you like to play again?")
     while True:
         try:
-            play_again = input("\nType 'y' for yes or 'n' for no\n").lower()
-            if play_again == "y":
+            p_again = input("\nType 'y' for yes or 'n' for no\n").lower()
+            if p_again == "y":
                 start_game()
-            elif play_again == "n":
+            elif p_again == "n":
                 print("\nOkay, we'll return to start & begin when ready")
                 main()
             else:
@@ -73,7 +73,7 @@ def start_game():
     """starts game by first selecting random word from list,
     then asks user to guess letter or whole word"""
     guess = False
-    guesses_left = 4
+    guesses_left = 6
     word = get_words()
     pos_list = ['_' for x in range(len(word))]
     print("\nA word has been selected")
@@ -108,6 +108,12 @@ def start_game():
 =========""", """  +---+
   |   |
   O   |
+  |\  |
+      |
+      |
+=========""", """  +---+
+  |   |
+  O   |
  /|\  |
       |
       |
@@ -128,28 +134,34 @@ def start_game():
                 play_again()
 # deal with input when more than one letter
             elif letter not in single_letters:
-                print("Guess must be either a single letter or correct word")
+                print("\nGuess must be either a single letter or correct word")
                 print("and unfortunately that classes as an attempt!")
                 guesses_left -= 1
                 wrong_guesses.append(letter)
                 print(f"guesses left = {guesses_left}")
-                if guesses_left == 3:
+                if guesses_left == 5:
                     print(hangman[0])
-                elif guesses_left == 2:
+                    print(wrong_guesses)
+                elif guesses_left == 4:
                     print(hangman[1])
-                elif guesses_left == 2:
+                    print(wrong_guesses)
+                elif guesses_left == 3:
                     print(hangman[2])
-                elif guesses_left == 1:
+                    print(wrong_guesses)
+                elif guesses_left == 2:
                     print(hangman[3])
-                print(wrong_guesses)
+                    print(wrong_guesses)
+                elif guesses_left == 1:
+                    print(hangman[4])
+                    print(wrong_guesses)
                 if guesses_left == 0:
                     print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
-                    print(hangman[4])
+                    print(hangman[5])
                     play_again()
            
             elif letter in word:
-                print(f"'{letter}' is in there!")
+                print(f"\n'{letter}' is in there!")
                 correct_guesses.append(letter)
                 position = word.find(letter)
                 pos_list[position] = letter
@@ -164,24 +176,27 @@ def start_game():
                 guesses_left -= 1
                 wrong_guesses.append(letter)
                 print(f"guesses left = {guesses_left}")
-                if guesses_left == 3:
+                if guesses_left == 5:
                     print(hangman[0])
-                elif guesses_left == 2:
+                    print(wrong_guesses)
+                elif guesses_left == 4:
                     print(hangman[1])
-                elif guesses_left == 2:
+                    print(wrong_guesses)
+                elif guesses_left == 3:
                     print(hangman[2])
-                elif guesses_left == 1:
+                    print(wrong_guesses)
+                elif guesses_left == 2:
                     print(hangman[3])
-                print(wrong_guesses)
+                    print(wrong_guesses)
+                elif guesses_left == 1:
+                    print(hangman[4])
+                    print(wrong_guesses)
                 if guesses_left == 0:
                     print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
-                    print(hangman[4])
+                    print(hangman[5])
                     play_again()
-                    
-            elif letter in correct_guesses:
-                print(f"you already guessed {letter}!")
-                   
+       
         else:
             print("You can only input letters")
 

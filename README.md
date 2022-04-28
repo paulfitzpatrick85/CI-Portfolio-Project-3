@@ -20,32 +20,34 @@ If the user selects no, they are brought back to the start to begin the game whe
 
 ![no for begin game](https://user-images.githubusercontent.com/55660566/165742685-6ffed7bc-2a2d-43c4-a409-36619ba75765.png)
 
-## Features
-Once the user has selected yes to begin the game, they are asked to guess a letter.
-The user can only either input one letter at a time, or the full correct word. 
-If their guess consists of more than one letter and is not the correct word, a message is print to tell the user to enter one letter at a time or the correct word.
+If anything but "y" or "n" is typed, the program will continue to inform the user "you need to type either y or n" until y or n is entered.
 
-![guess single letter only](https://user-images.githubusercontent.com/55660566/165744951-b9de6837-ea6e-4a94-b902-16d693263338.png)
+## Features
+Once the user has selected yes to begin the game, they are told the word contains four letters and are asked to guess a letter.
+The user can only either input one letter at a time, or the full correct word. 
+
+when a correct guess is entered, a message is print to say that 'x' is in the word and its position in the word is displayed in the format _ _ _ x.
+
+![correct guess](https://user-images.githubusercontent.com/55660566/165837869-853b0711-9188-4706-9fcf-8e5db3bcfb87.png)
 
 When a incorrect guess is input by the user, the user is told the lettter is not in the word and a list of the their wrong guesses is display along with the ascii art depicting the hangman, with a limb added on for each incorrect guess.
 The number of guess attempts remaining is also displayed.
 
 ![wrong guess](https://user-images.githubusercontent.com/55660566/165745355-c1ebe414-fcb5-4849-9590-1c0c1fcc6d97.png)
+
+If the guess consists of more than one letter and is not the correct word, a message is print to tell the user to enter one letter at a time or the correct word, and that a their number of guesses has decreased as a result of the attempt.
+
+![multi-letter guess](https://user-images.githubusercontent.com/55660566/165838183-6464e1a2-b796-4347-8833-40c78b768624.png)
+
  
 ## Testing section
-- I tested and confirmed that the app displays correctly across all screen sizes from large monitors, laptop, tablet and small smartphones (down to 325px).
-The charts display perfect upon loading to any screen, but as a note, when viewing the charts in dev tools and minimising the screen down in width the charts will stay the same size until the page is refreshed.
-This was thought to be a bug until the effect of the refresh was pointed out to me by my mentor.
+- I ran my code through the pep8 checker and found no significant issues, only messages regarding blank lines containing white space, which I have left as is for the sake of readability. 
 
-- I tested my html on the w3c vaildator and my css on jigsaw and found all code to be ok with no errors.
+- 
 
 sorted = sorted
 
-![htmlValid](https://user-images.githubusercontent.com/55660566/160015555-342b6f9d-4f7d-46a5-a86d-42150f3b784f.png)
 
-![html2Valid](https://user-images.githubusercontent.com/55660566/160015568-d423cb6b-bc46-4f45-98a1-5e38d7bb692e.png)
-
-![cssValid](https://user-images.githubusercontent.com/55660566/160015588-748a53ce-5bfb-4a86-b607-39bc2b79261a.png)
 
 - I tested my JavaScript on the jshint vaildator and returned no significant issues. All warnings and issues where discussed we my mentor who assured me the issues where not significant, and also my tutor was happy as long as everything worked as intended.
 The warnings where as follows:
@@ -70,7 +72,10 @@ The warnings where as follows:
 - 
      
 ## Bugs found while creating and testing
- 
+ Although not necessarily a bug, one problem I encountered was if the user entered eventually enetered four correct guesses the game would not end.
+ To resolve this I ------------
+ To do this I created an empty list called correct_guesses to store the correct guesses and I also created a variable called sorted_word which used the sorted method on the word variable.
+ I then used an if statement to check the sorted_word variable was equal to the sorted guesses, eg if the word was "bake" and the 
 -
   
 ## Deployment
