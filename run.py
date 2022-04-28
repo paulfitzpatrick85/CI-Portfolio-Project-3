@@ -5,7 +5,7 @@ import random
 def welcome_message():
     """Welcome user to game upon loading"""
     print("""   -------------------------------------------------\n
-     *********** Welcome to HangMan! ************\n
+     *********** ! ************\n
      The program will select a word at random.
      Your job is to guess, one letter at a time,
      what that word is.
