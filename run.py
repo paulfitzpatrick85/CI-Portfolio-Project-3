@@ -128,7 +128,7 @@ def start_game():
                 play_again()
 
             elif letter not in single_letters:
-                print("Your guess must be a single letter")
+                print("Guess must be either a single letter or correct word")
            
             elif letter in word:
                 print(f"'{letter}' is in there!")

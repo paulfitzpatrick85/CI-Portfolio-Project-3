@@ -1,71 +1,37 @@
-# Marco Tracker
+# Hang-Man
+Hang-Man is a python terminal game which runs in the Code Institue mock terminal on Heroku.
+The game selects a word at random, and the user must guess the word one letter at a time or they can attempt to guess the full word in one go.
 
-View the finished website here - https://paulfitzpatrick85.github.io/CI-Portfolio-Project-2/
+Run the finished app here - https://paulfitzpatrick85.github.io/CI-Portfolio-Project-2/
 
-## Who is this site for?
-
-The function of the Macro Tracker web app, is to allow a user to manually enter and keep track of their daily macronutrient (protein, carbohydrate and fat) intake, and to also calculate the calories based on the macro's entered.
-While some calorie tracking app use a database of popular foods to choose from and add, these app's often lack less popular foods items such as foreign brand protein powders or foods/supplements only available in healths shops and not in the typical supermarket.
-
-![amIResponsive](https://user-images.githubusercontent.com/55660566/159682173-45369723-3459-4d11-b484-5c038d0205f9.png)
+IMAGE- AM I RESPONSIVE
 
 
+## How to Play
+When the program is ran for the first time the user is greeted with a welcome message, asked to input their name and then asked if they would like to start a new game.
 
-## User stories
+![get user name](https://user-images.githubusercontent.com/55660566/165741789-4ff03bf7-f642-4daa-a71a-37fa02646d15.png)
 
-- As a user I want to be able to use the app for its intended purpose easily and without having to through any trail and error to figure it out.
-- As a user I want to I  want input a number of grams for each macro and have the overall totals of macro, total calories and remaining calories of my target to be calculated for me without out multiple click or inputting of data.
-- As a user I would like to see popular ways of breaking down of food intake in the form of charts with percentages representative of how much of each macronutrient to consume.
+If the user selects yes, the game begin and the user can begin guessing the word
 
-# Features
+![yes to begin game](https://user-images.githubusercontent.com/55660566/165742382-bd34252e-25be-4a2e-8c1d-34dbe62537f5.png)
 
- ## Main Page - Welcome and Data Entry Prompt.
-On loading the app, the user is greeted with a prompt welcoming them to the page and they are asked to enter the number of calories they want to set as a target to consume each day.
+If the user selects no, they are brought back to the start to begin the game when they choose.
 
-When the user enters a number, an alert follows to say "Great! let us help keep you within (number entered) calories!"
-The number entered is then displayed in 'Calorie Target'.
+![no for begin game](https://user-images.githubusercontent.com/55660566/165742685-6ffed7bc-2a2d-43c4-a409-36619ba75765.png)
 
- ![initialPrompt](https://user-images.githubusercontent.com/55660566/159681041-110da584-db52-463a-adcd-6be349d8f791.png)
+## Features
+Once the user has selected yes to begin the game, they are asked to guess a letter.
+The user can only either input one letter at a time, or the full correct word. 
+If their guess consists of more than one letter and is not the correct word, a message is print to tell the user to enter one letter at a time or the correct word.
 
- ![numberEnteredCorrect](https://user-images.githubusercontent.com/55660566/159681060-4fa41e35-c7cc-48c9-bfa9-0b07fac62f58.png)
+![guess single letter only](https://user-images.githubusercontent.com/55660566/165744951-b9de6837-ea6e-4a94-b902-16d693263338.png)
 
- ![targetDisplayed](https://user-images.githubusercontent.com/55660566/159681072-17959e7d-94dc-42ed-a580-d4a2ebfe201d.png)
+When a incorrect guess is input by the user, the user is told the lettter is not in the word and a list of the their wrong guesses is display along with the ascii art depicting the hangman, with a limb added on for each incorrect guess.
+The number of guess attempts remaining is also displayed.
+
+![wrong guess](https://user-images.githubusercontent.com/55660566/165745355-c1ebe414-fcb5-4849-9590-1c0c1fcc6d97.png)
  
- If the user enters anything that is not a number in the prompt, an alert will follow that reads "Sorry! (text entered) isn't a number! Please refresh the page and try again!" The user has the choice to refresh the page or continue using the app, in which case 'Calorie Target' will diplay "Target Not Set!"
-
- ![NaNmessage](https://user-images.githubusercontent.com/55660566/159678510-f90d00d4-f1ba-4118-a503-8e7ba8970477.png)
-
-![TargetNotSet1](https://user-images.githubusercontent.com/55660566/159679067-d9fc76ff-f230-4df2-8c23-287490e5582e.png)
- 
- ## Inputting Macros
-Once a user has entered their target calorie number and it has been displayed, they can then begin to input there required number of protein, carbs and fat using the plus or if needs be the minus buttons, which along with all other buttons on the page will enlarge when the mouse is hovering over it to show the user the anyway on the page with the same styling is a button.
-
-![inputtingMacros](https://user-images.githubusercontent.com/55660566/159685700-92ceb996-f60d-43f6-870a-1bbca6b58fde.png)
-
-The user is required to enter data for all fields.
-If one or more fields are left at zero and the user attempts to 'Calculate Totals Calories', an alert will be displayed request the user add inputs for all fields. Once the user clicks 'ok', the input fields are reset to zero.
-
-![alertEnterAllInputs](https://user-images.githubusercontent.com/55660566/159695081-9e1ddad1-77b4-4d81-ae22-3d12a8e83843.png)
-
-
-## Calculating Totals
-After all macros numbers are input, the user can navagate to the "Calculate Total Calories" button which when clicked will trigger the following functions at the one time.
-- Figures from the input fields are displayed in their corresponding 'Total grams' output. And on each subsequent click, once the user has input more numbers, the input numbers will be added to the current totals for protein, carbs and fat.  
-- The totals for protein, carbs and fat are calculated into calories using the formula : (protein total x 4)+(carb total x 4)+(fat total x 9) =  total calories. The result is then displayed in 'Calories Consumed'.
-- The current figure for 'Calories Consumed' is subtracted from the 'Calorie Target' set by the user. The Result of which is then displayed as 'Calories Remaining'. 
-
-![totalsCalculated](https://user-images.githubusercontent.com/55660566/159685718-34ddf491-3cc0-4478-a394-41f33cff8a66.png)
-
-## Navagation.
-
-The web app is made up of two pages. At the bottom of each page is a link styled to look like the other button. On the home page this link brings the user to the second page, where three charts are displayed representing popular percentages of macro intake for the different phases of bodybuilding, using the terminology known to people interested in the subject: cutting(fat loss) , maintenance(staying as you are), and bulking(building muscle mass).
-Clicking on each of the three button will call a function to display a different chart.
-
-![chartPic](https://user-images.githubusercontent.com/55660566/159893401-ae27ed84-f9f9-4a66-bf01-07c65e585ada.png)
-![chartPic2](https://user-images.githubusercontent.com/55660566/159893712-638b6c0e-ac78-45ae-bfce-8a97bd7f4ec7.png)
-
-Below the chart buttons is the "Back to App" link, which will bring the user back to the home page of the app.
-
 ## Testing section
 - I tested and confirmed that the app displays correctly across all screen sizes from large monitors, laptop, tablet and small smartphones (down to 325px).
 The charts display perfect upon loading to any screen, but as a note, when viewing the charts in dev tools and minimising the screen down in width the charts will stay the same size until the page is refreshed.
@@ -102,8 +68,7 @@ The warnings where as follows:
 - 
      
 ## Bugs found while creating and testing
-- While testing an earlier version of the app, each input fields had below it an 'add' button. This button when clicked would add the figure in the input field to the corresponding 'total grams', then the user had to clicked 'Calculate total Calories'. A bug or rather a loop hole for potential user error is that the user could continuously click 'Calculate total Calories' and continue adding the figures in each 'Total grams' which would see the total calories increase while each of the three 'total grams' would stay the same.
-I decided the best course of action was to remove the 'add' button, place the 'add protein', 'add carb' and 'add fat' function in the onclick attribute of 'Calculate total Calories'. This eliminated the issue and also results in less work to be done by the user creating a better and easier user experience. 
+ 
 -
   
 ## Deployment
