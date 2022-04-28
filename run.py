@@ -126,9 +126,27 @@ def start_game():
                 print("You guessed the word!!")
                 guess = True
                 play_again()
-
+# deal with input when more than one letter
             elif letter not in single_letters:
                 print("Guess must be either a single letter or correct word")
+                print("and unfortunately that classes as an attempt!")
+                guesses_left -= 1
+                wrong_guesses.append(letter)
+                print(f"guesses left = {guesses_left}")
+                if guesses_left == 3:
+                    print(hangman[0])
+                elif guesses_left == 2:
+                    print(hangman[1])
+                elif guesses_left == 2:
+                    print(hangman[2])
+                elif guesses_left == 1:
+                    print(hangman[3])
+                print(wrong_guesses)
+                if guesses_left == 0:
+                    print("\nGAME OVER!!")
+                    print("You've ran out of guesses!")
+                    print(hangman[4])
+                    play_again()
            
             elif letter in word:
                 print(f"'{letter}' is in there!")
@@ -160,6 +178,9 @@ def start_game():
                     print("You've ran out of guesses!")
                     print(hangman[4])
                     play_again()
+                    
+            elif letter in correct_guesses:
+                print(f"you already guessed {letter}!")
                    
         else:
             print("You can only input letters")

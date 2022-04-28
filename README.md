@@ -39,6 +39,8 @@ This was thought to be a bug until the effect of the refresh was pointed out to 
 
 - I tested my html on the w3c vaildator and my css on jigsaw and found all code to be ok with no errors.
 
+sorted = sorted
+
 ![htmlValid](https://user-images.githubusercontent.com/55660566/160015555-342b6f9d-4f7d-46a5-a86d-42150f3b784f.png)
 
 ![html2Valid](https://user-images.githubusercontent.com/55660566/160015568-d423cb6b-bc46-4f45-98a1-5e38d7bb692e.png)
