@@ -5,19 +5,21 @@ import random
 def welcome_message():
     """Welcome user to game upon loading"""
     print("""   -------------------------------------------------\n
-     *********** ! ************\n
+     *********** Welcome to HangMan! ************\n
      The program will select a word at random.
      Your job is to guess, one letter at a time,
      what that word is.
      With each incorrect answer the hangman will
      appear one body part at a time.
+     You have four attempts.
+                      Good Luck!
      \n   -------------------------------------------------""")
 
 
 def play_again():
-    """ask player if they want to play again once previousgame is finished"""
+    """ask player if they want to play again once previous game is finished"""
     print("Would you like to play again?")
-    play_again = input("\ny/n?\n").lower()
+    play_again = input("\nType y for yes or n for no\n").lower()
     if play_again == "y":
         start_game()
     elif play_again == "n":
@@ -37,21 +39,21 @@ def initiate_game():
         except TypeError:
             print("Your name must consist of letters only")
     
-    print(f"{name}, would you like to play a new game?")
+    print(f"\n{name}, would you like to play a new game?")
 
     while True:
         try:
             start_game_question = input("Type 'y'/'n' for yes/no.\n").lower()
             if start_game_question == "y":
-                print(f"Great {name}, lets begin!")
+                print(f"\nGreat {name}, lets begin!")
                 break
             elif start_game_question == "n":
-                print(f"Okay {name}, we'll return to begin when ready")
+                print(f"\nOkay {name}, we'll return to begin when ready")
                 main()
             else:
                 raise ValueError()
         except ValueError:
-            print("you need to pick y or n")
+            print("You need to type either y or n")
 
                 
 def get_words():
@@ -70,11 +72,14 @@ def start_game():
     pos_list = ['_' for x in range(len(word))]
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
-    # print(word)
+    print(word)
 
     wrong_guesses = ["wrong guesses:"]
     correct_guesses = []
     sorted_word = sorted(word)
+    single_letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i",
+                      "j", "k", "l", "m", "n", "o", "p", "q", "r",
+                      "s", "t", "u", "v", "w", "x", "y", "z"]
     # hangman ascii art
     hangman = ["""
   +---+
@@ -116,6 +121,9 @@ def start_game():
                 print("You guessed the word!!")
                 guess = True
                 play_again()
+
+            elif letter not in single_letters:
+                print("Your guess must be a single letter")
            
             elif letter in word:
                 print(f"'{letter}' is in there!")
@@ -123,15 +131,13 @@ def start_game():
                 position = word.find(letter)
                 pos_list[position] = letter
                 print(' '.join(pos_list))
-                # print(sorted_word)
-                # print(sorted(correct_guesses))
             
                 if sorted_word == sorted(correct_guesses):
                     print("You guessed the word!!")
                     play_again()
                      
             elif letter not in word:
-                print(f"Sorry, '{letter}' is not in the word!")
+                print(f"\nSorry, '{letter}' is not in the word!")
                 guesses_left -= 1
                 wrong_guesses.append(letter)
                 print(f"guesses left = {guesses_left}")
