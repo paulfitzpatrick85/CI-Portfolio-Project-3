@@ -11,7 +11,7 @@ def welcome_message():
      what that word is.
      With each incorrect answer the hangman will
      appear one body part at a time.
-     You have four attempts.
+     You are allowed four wrong guesses.
                       Good Luck!
      \n   -------------------------------------------------""")
 
@@ -19,12 +19,18 @@ def welcome_message():
 def play_again():
     """ask player if they want to play again once previous game is finished"""
     print("Would you like to play again?")
-    play_again = input("\nType y for yes or n for no\n").lower()
-    if play_again == "y":
-        start_game()
-    elif play_again == "n":
-        print("\nOkay, we'll return to start & begin when ready")
-        main()
+    while True:
+        try:
+            play_again = input("\nType 'y' for yes or 'n' for no\n").lower()
+            if play_again == "y":
+                start_game()
+            elif play_again == "n":
+                print("\nOkay, we'll return to start & begin when ready")
+                main()
+            else:
+                raise ValueError()
+        except ValueError:
+            print("You need to type either y or n")
 
 
 def initiate_game():
@@ -72,7 +78,6 @@ def start_game():
     pos_list = ['_' for x in range(len(word))]
     print("\nA word has been selected")
     print(f"The word contains {len(word)} letters")
-    print(word)
 
     wrong_guesses = ["wrong guesses:"]
     correct_guesses = []
