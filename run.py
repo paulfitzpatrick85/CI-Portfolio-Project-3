@@ -15,8 +15,9 @@ def welcome_message():
 
 
 def play_again():
+    """ask player if they want to play again once previousgame is finished"""
     print("Would you like to play again?")
-    play_again = input("\ny/n?").lower()
+    play_again = input("\ny/n?\n").lower()
     if play_again == "y":
         start_game()
     elif play_again == "n":
@@ -25,9 +26,10 @@ def play_again():
 
 
 def initiate_game():
+    """initiate game after welcome message"""
     while True:
         try:
-            name = input("Input your name:").lower().capitalize()
+            name = input("Input your name:\n").lower().capitalize()
             if name.isalpha() is True:
                 break
             else:
@@ -53,6 +55,7 @@ def initiate_game():
 
                 
 def get_words():
+    """collection of words to be used in game"""
     words = ["bake", "word", "list", "four", "five", "best",
              "cute", "zero", "huge", "race", "rice", "lace", "beam"]
     return random.choice(words).lower()
@@ -107,7 +110,7 @@ def start_game():
 ========="""]
 
     while guess is False:
-        letter = input("\nGuess a letter:").lower()
+        letter = input("\nGuess a letter:\n").lower()
         if letter.isalpha() is True:
             if letter == word:
                 print("You guessed the word!!")
