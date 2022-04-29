@@ -135,7 +135,7 @@ def start_game():
 # deal with input when more than one letter
             elif letter not in single_letters:
                 print("\nGuess must be either a single letter or correct word")
-                print("and unfortunately that classes as an attempt!")
+                print("And unfortunately that classes as an attempt!")
                 guesses_left -= 1
                 wrong_guesses.append(letter)
                 print(f"guesses left = {guesses_left}")
@@ -161,7 +161,7 @@ def start_game():
                     play_again()
            
             elif letter in word:
-                print(f"\n'{letter}' is in there!")
+                print(f"\n'{letter}' is in the word!")
                 correct_guesses.append(letter)
                 position = word.find(letter)
                 pos_list[position] = letter
@@ -170,7 +170,7 @@ def start_game():
                 if sorted_word == sorted(correct_guesses):
                     print("You guessed the word!!")
                     play_again()
-                     
+                    
             elif letter not in word:
                 print(f"\nSorry, '{letter}' is not in the word!")
                 guesses_left -= 1

@@ -26,7 +26,7 @@ If anything but "y" or "n" is typed, the program will continue to inform the use
 Once the user has selected yes to begin the game, they are told the word contains four letters and are asked to guess a letter.
 The user can only either input one letter at a time, or the full correct word. 
 
-when a correct guess is entered, a message is print to say that 'x' is in the word and its position in the word is displayed in the format _ _ _ x.
+when a correct guess is entered, a message is printed to say that 'x' is in the word and its position in the word is displayed in the format _ _ _ x.
 
 ![correct guess](https://user-images.githubusercontent.com/55660566/165837869-853b0711-9188-4706-9fcf-8e5db3bcfb87.png)
 
@@ -35,38 +35,26 @@ The number of guess attempts remaining is also displayed.
 
 ![wrong guess](https://user-images.githubusercontent.com/55660566/165745355-c1ebe414-fcb5-4849-9590-1c0c1fcc6d97.png)
 
-If the guess consists of more than one letter and is not the correct word, a message is print to tell the user to enter one letter at a time or the correct word, and that a their number of guesses has decreased as a result of the attempt.
+If the guess consists of more than one letter and is not the correct word, a message is printed to tell the user to enter one letter at a time or the correct word, and that a their number of guesses has decreased as a result of the attempt.
 
 ![multi-letter guess](https://user-images.githubusercontent.com/55660566/165838183-6464e1a2-b796-4347-8833-40c78b768624.png)
 
+When the user guesses the word correct they are asked if they would like to play again by typing "y" or "n".
+
+![correct guess](https://user-images.githubusercontent.com/55660566/165940437-f7852821-024a-4972-8e09-143a163ea425.png)
+
+"y" will bring them straight into another game and "n" will take them back to the beginning of the program.
  
 ## Testing section
 - I ran my code through the pep8 checker and found no significant issues, only messages regarding blank lines containing white space, which I have left as is for the sake of readability. 
 
-- 
-
-sorted = sorted
 
 
 
-- I tested my JavaScript on the jshint vaildator and returned no significant issues. All warnings and issues where discussed we my mentor who assured me the issues where not significant, and also my tutor was happy as long as everything worked as intended.
-The warnings where as follows:
-- for each instance let is used :'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
-- 13 unused variables: jshint then lists all functions used, not variables.
-- One undefined variable : 'google' as used in the code block for each chart, again I was assured this was not a significant issue.
 
-![jsValidLet](https://user-images.githubusercontent.com/55660566/160015950-8382d8b9-0830-4868-8364-4331d12c51c8.png)
-![jsValidUndefined](https://user-images.githubusercontent.com/55660566/160015961-ab6ee0d3-8518-4512-bbc2-111efe73f75b.png)
-![jsValidFunc](https://user-images.githubusercontent.com/55660566/160016133-c9321fcf-3168-4734-92b9-2002c26caa90.png)
-
-- I tested that the link  on each page works correctly.
-
-- I tested the sites accessibility through lighthouse, the image below showing the results.
-
-![lighthouse](https://user-images.githubusercontent.com/55660566/160016789-e57e3a4a-301e-4935-aefa-233779583508.png)
 
 ### User story testing
-- The app is designed to be minimalistic in terms of the amount of work and clicking a user needs to do to, once the user enters their figures for each macro, one button does everything, tallys up individual macro totals, works out the total calories consumed so far, and how many calories they have left if they chose to set a target. 
+- The game is designed to be minimalistic in terms of the amount of prompt or questions a user needs to do get through or answer before getting to the actual game, once the user enters their figures for each macro, one button does everything, tallys up individual macro totals, works out the total calories consumed so far, and how many calories they have left if they chose to set a target. 
 - Navigation links between the two pages are place in the same place, the bottom is chosen as opposed to the top like a website, in order to have the app's function take the users focus and so that aesthetically it resembles an app rather than a website.
 - The layout is presented in a simple format so that on first viewing the app, the target audience should have good inkling of how to use the app. The buttons on the chart.html page intentionally use the 'slang' terms for weight loss and weight gain i.e, cutting and bulking, in order to display familiarity with the fitness 'scene' (as these a terms used by seasoned professionals within sports such as power lifting, MMA and much more).
 - 
