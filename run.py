@@ -11,7 +11,10 @@ def welcome_message():
      what that word is.
      With each incorrect answer the hangman will
      appear one body part at a time.
-     You are allowed six wrong guesses.
+     You are allowed six wrong guesses.\n
+     Remember to press enter after each input:
+     for your name, answering 'y' or 'n'
+     and of course your guesses.
                       Good Luck!
      \n   -------------------------------------------------""")
 
@@ -61,7 +64,7 @@ def initiate_game():
         except ValueError:
             print("You need to type either y or n")
 
-                
+               
 def get_words():
     """collection of words to be used in game"""
     words = ["bake", "word", "list", "four", "five", "best",

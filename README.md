@@ -2,16 +2,18 @@
 Hang-Man is a python terminal game which runs in the Code Institue mock terminal on Heroku.
 The game selects a word at random, and the user must guess the word one letter at a time or they can attempt to guess the full word in one go.
 
-Run the finished app here - https://paulfitzpatrick85.github.io/CI-Portfolio-Project-2/
+Run the game here - 
 
-IMAGE- AM I RESPONSIVE
+## User Storys
+- As a user I want to be able to play the game easily and without having to through any trial and error to figure it out.
+- As a user i want to see where in the word my correctly guessed letter is posistioned in order to keep me interested and engaged in playing.
+-As a user i want to continue on to a new game without having to re-enter my data.
 
 
 ## How to Play
 When the program is ran for the first time the user is greeted with a welcome message, asked to input their name and then asked if they would like to start a new game.
 
-![get user name](https://user-images.githubusercontent.com/55660566/165741789-4ff03bf7-f642-4daa-a71a-37fa02646d15.png)
-
+![welcome message](https://user-images.githubusercontent.com/55660566/166121544-562c455a-8550-4b72-ba25-551e5ec5aed4.png)
 If the user selects yes, the game begins and the user can begin guessing the word.
 
 ![yes to begin game](https://user-images.githubusercontent.com/55660566/165742382-bd34252e-25be-4a2e-8c1d-34dbe62537f5.png)
@@ -63,6 +65,8 @@ When the user guesses the correct word they are asked if they would like to play
   
 ## Deployment
 Due to the recent security issue with git hub, I added my project to heroku and added the config vars - port key 8000, but for the actual deployment I deployed the game through the terminal in gitpod using the following commands
+- First I created a new app and I added a config vars with a key of PORT and value of 8000.
+- I then added build packs using python and node.js
 1. command: heroku login -i : to login to heroku and enter your details.
 2. command: heroku apps : to get your app name from heroku.
 3. command: heroku git:remote -a <app_name> : Set the heroku remote. (Replace <app_name> with your actual app name)
