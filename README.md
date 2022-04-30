@@ -2,7 +2,7 @@
 Hang-Man is a python terminal game which runs in the Code Institue mock terminal on Heroku.
 The game selects a word at random, and the user must guess the word one letter at a time or they can attempt to guess the full word in one go.
 
-Run the game here - 
+Run the game here - https://ci-pp3-pf-hangman.herokuapp.com/
 
 ## User Storys
 - As a user I want to be able to play the game easily and without having to through any trial and error to figure it out.
@@ -55,6 +55,8 @@ When the user guesses the correct word they are asked if they would like to play
 
 ### User story testing
 - The game is designed to be minimalistic in terms of the amount of prompts or questions a user needs to do get through or answer before getting to the actual game.
+-The game is launched after only two prompts: input your name and would you like to play a new game, the user is straight into the game with little to no waiting.
+-Hints are displayed throughout the game: position of correctly guessed letter, list of previous wrong guesses and at game over the word is displayed to show the user what they missed. 
      
 ## Bugs found while creating and testing
  Although not necessarily a bug, one problem I encountered was if the user entered eventually entered four correct guesses and therefore completing the word, the game would not end.
@@ -64,15 +66,16 @@ When the user guesses the correct word they are asked if they would like to play
 
   
 ## Deployment
-Due to the recent security issue with git hub, I added my project to heroku and added the config vars - port key 8000, but for the actual deployment I deployed the game through the terminal in gitpod using the following commands
-- First I created a new app and I added a config vars with a key of PORT and value of 8000.
-- I then added build packs using python and node.js
-1. command: heroku login -i : to login to heroku and enter your details.
-2. command: heroku apps : to get your app name from heroku.
-3. command: heroku git:remote -a <app_name> : Set the heroku remote. (Replace <app_name> with your actual app name)
-4. command: git add . && git commit -m "Deploy to Heroku via CLI" : Add, commit and push to github
-5. command: git push origin main : Push to github 
-   command: git push heroku main  : Push to heroku
+Due to the recent security issue with git hub, I added my project to my heroku profile, but for the actual deployment I deployed the game through the terminal in gitpod using the following commands
+- First I created a new app in heroku and I added a config vars with a key of PORT and value of 8000.
+- I then added the build packs python and node.js.
+- I then deployed the game itself through the terminal in gitpod using the following commands:
+1. "heroku login -i"  to login to heroku
+2. "heroku apps"  to display your list of apps in heroku.
+3.  "heroku git:remote -a ci-pp3-pf-hangman" to set the heroku remote. 
+4. 'git add . && git commit -m "Deploy to Heroku via CLI"' to Add, commit and push to github
+5. git push origin main : Push to github 
+6. git push heroku main  : Push to heroku
 
 ## Credits
 The following code to display position of guessed letter was taken from stackover where a user was having a similar problem showing the user a hint of where in the word their correct guess is:
