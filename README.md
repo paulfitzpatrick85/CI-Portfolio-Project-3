@@ -49,60 +49,35 @@ When the user guesses the word correct they are asked if they would like to play
 - I ran my code through the pep8 checker and found no significant issues, only messages regarding blank lines containing white space, which I have left as is for the sake of readability. 
 
 
-
-
-
-
 ### User story testing
-- The game is designed to be minimalistic in terms of the amount of prompt or questions a user needs to do get through or answer before getting to the actual game, once the user enters their figures for each macro, one button does everything, tallys up individual macro totals, works out the total calories consumed so far, and how many calories they have left if they chose to set a target. 
-- Navigation links between the two pages are place in the same place, the bottom is chosen as opposed to the top like a website, in order to have the app's function take the users focus and so that aesthetically it resembles an app rather than a website.
-- The layout is presented in a simple format so that on first viewing the app, the target audience should have good inkling of how to use the app. The buttons on the chart.html page intentionally use the 'slang' terms for weight loss and weight gain i.e, cutting and bulking, in order to display familiarity with the fitness 'scene' (as these a terms used by seasoned professionals within sports such as power lifting, MMA and much more).
-- 
+- The game is designed to be minimalistic in terms of the amount of prompts or questions a user needs to do get through or answer before getting to the actual game.
      
 ## Bugs found while creating and testing
- Although not necessarily a bug, one problem I encountered was if the user entered eventually enetered four correct guesses the game would not end.
- To resolve this I ------------
- To do this I created an empty list called correct_guesses to store the correct guesses and I also created a variable called sorted_word which used the sorted method on the word variable.
- I then used an if statement to check the sorted_word variable was equal to the sorted guesses, eg if the word was "bake" and the 
--
+ Although not necessarily a bug, one problem I encountered was if the user entered eventually entered four correct guesses and therefore completing the word, the game would not end.
+ To resolve this I needed to compare the individual letters guessed to the individual letters in the word.
+ To do this I created an empty list called correct_guesses to append the correct guesses to and I also created a variable called sorted_word which used the sorted method on the word variable.
+ I then used an if statement to check the sorted_word variable was equal to the sorted guesses, eg if the word was "bake" and the guesses where in the order of for example: k,e,a,b, this if statement would be comparing if sorted word(in this case -"a","b", "e","k") is the same as the sorted guesses list ["a","b","e","k"]
+
   
 ## Deployment
+Due to the recent security issue with git hub, I add my project to heroku and added the port key 8000, but for the actual deployment i deployed the game through the terminal in gitpod using the following commands
+1. command: heroku login -i : to login to heroku and enter your details.
+2. command: heroku apps : to get your app name from heroku.
+3. command: heroku git:remote -a <app_name> : Set the heroku remote. (Replace <app_name> with your actual app name)
+4. command: git add . && git commit -m "Deploy to Heroku via CLI" : Add, commit and push to github
+5. command: git push origin main : Push to github 
+   command: git push heroku main  : Push to heroku
 
-I deployed the web app through github pages through the following steps:
-- I saved, commited and push my work to github using the commands 'git add .',' git commit -m "example comment"', and 'git push' respectively.
-- From my project repository I then navigated to the settings tab to find the github pages section where in the source section I selected main branch from the drop down menu and selected save, a link was then created for the published site.
+## Credits
+The following code to display position of guessed letter was taken from stackover where a user was having a similar problem showing the user a hint of where in the word their correct guess is:
 
-## credits
-- The code block for the charts was taken from google charts examples and the information adapted to suit the needs of the app.
- Code taken from this webpage https://www.tutorialspoint.com/googlecharts/googlecharts_pie_basic.htm 
-- The initial plan for the app was to have one chart and have it be responsive to the user input, but that proved to be beyond my current knowledge. The chart was left in with future maintenability in mind, in that as I learn more throughout the course I can return to complete the initial intention.
+position = word.find(letter)
+pos_list[position] = letter
+print(' '.join(pos_list))
 
-
-
-
-
-
-
-
-credits 
-display position of guessed letter
-
-if position == 0:
-      print(letter, "_ _ _ _")
-    if position == 1:
-      print("_", letter, "_ _ _ ")
-    if position == 2:
-      print("_ _", letter, "_ _ ")
-    if position == 3:
-      print("_ _ _", letter, "_ ")
-    if position == 4:
-      print("_ _ _ _", letter)
-
-      https://stackoverflow.com/questions/56324522/program-in-python-to-show-letters-guessed-in-a-hangman-game-not-working
+-Taken from the following webpage:
+https://stackoverflow.com/questions/56324522/program-in-python-to-show-letters-guessed-in-a-hangman-game-not-working
 
 
-
-
-      acsii pictures
-
-      https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
+-The "images" for the hangman where copied from the following page:
+https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
