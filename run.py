@@ -194,6 +194,7 @@ def start_game():
                 if guesses_left == 0:
                     print("\nGAME OVER!!")
                     print("You've ran out of guesses!")
+                    print(f"The word was {word}!")
                     print(hangman[5])
                     play_again()
        

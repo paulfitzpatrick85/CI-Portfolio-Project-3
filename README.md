@@ -12,7 +12,7 @@ When the program is ran for the first time the user is greeted with a welcome me
 
 ![get user name](https://user-images.githubusercontent.com/55660566/165741789-4ff03bf7-f642-4daa-a71a-37fa02646d15.png)
 
-If the user selects yes, the game begin and the user can begin guessing the word
+If the user selects yes, the game begins and the user can begin guessing the word.
 
 ![yes to begin game](https://user-images.githubusercontent.com/55660566/165742382-bd34252e-25be-4a2e-8c1d-34dbe62537f5.png)
 
@@ -26,11 +26,11 @@ If anything but "y" or "n" is typed, the program will continue to inform the use
 Once the user has selected yes to begin the game, they are told the word contains four letters and are asked to guess a letter.
 The user can only either input one letter at a time, or the full correct word. 
 
-when a correct guess is entered, a message is printed to say that 'x' is in the word and its position in the word is displayed in the format _ _ _ x.
+When a correct guess is entered, a message is printed to say that 'x' is in the word and its position in the word is displayed in the format _ _ _ x.
 
 ![correct guess](https://user-images.githubusercontent.com/55660566/165837869-853b0711-9188-4706-9fcf-8e5db3bcfb87.png)
 
-When a incorrect guess is input by the user, the user is told the lettter is not in the word and a list of the their wrong guesses is display along with the ascii art depicting the hangman, with a limb added on for each incorrect guess.
+When a incorrect guess is input by the user, the user is told the lettter is not in the word and a list of the their wrong guesses is displayed along with the ascii art depicting the hangman, with a limb added on for each incorrect guess.
 The number of guess attempts remaining is also displayed.
 
 ![wrong guess](https://user-images.githubusercontent.com/55660566/165745355-c1ebe414-fcb5-4849-9590-1c0c1fcc6d97.png)
@@ -39,14 +39,16 @@ If the guess consists of more than one letter and is not the correct word, a mes
 
 ![multi-letter guess](https://user-images.githubusercontent.com/55660566/165838183-6464e1a2-b796-4347-8833-40c78b768624.png)
 
-When the user guesses the word correct they are asked if they would like to play again by typing "y" or "n".
+When the user guesses the correct word they are asked if they would like to play again by typing "y" or "n".
 
-![correct guess](https://user-images.githubusercontent.com/55660566/165940437-f7852821-024a-4972-8e09-143a163ea425.png)
+![word guessed](https://user-images.githubusercontent.com/55660566/166117376-4a11092a-3741-47c4-bee8-00411a27ab22.png)
 
 "y" will bring them straight into another game and "n" will take them back to the beginning of the program.
  
 ## Testing section
 - I ran my code through the pep8 checker and found no significant issues, only messages regarding blank lines containing white space, which I have left as is for the sake of readability. 
+
+![pep8](https://user-images.githubusercontent.com/55660566/166117448-53357289-06a1-4ba2-b5fb-8d3961b828d2.png)
 
 
 ### User story testing
@@ -60,7 +62,7 @@ When the user guesses the word correct they are asked if they would like to play
 
   
 ## Deployment
-Due to the recent security issue with git hub, I add my project to heroku and added the port key 8000, but for the actual deployment i deployed the game through the terminal in gitpod using the following commands
+Due to the recent security issue with git hub, I added my project to heroku and added the config vars - port key 8000, but for the actual deployment I deployed the game through the terminal in gitpod using the following commands
 1. command: heroku login -i : to login to heroku and enter your details.
 2. command: heroku apps : to get your app name from heroku.
 3. command: heroku git:remote -a <app_name> : Set the heroku remote. (Replace <app_name> with your actual app name)
